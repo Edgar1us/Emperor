@@ -1,0 +1,83 @@
+<odoo>
+    <data>
+	    <record model="ir.actions.act_window" id="emperor.action_window_king">
+            <field name="name">King</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form,kanban,graph</field>
+            <field name="domain">[('is_king','=',True)]</field>
+            <field name="context">{'default_is_king': True}</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('emperor.king_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('emperor.king_form')}),]" />
+        </record>
+
+        <record model="ir.actions.act_window" id="emperor.action_window_world">
+            <field name="name">World</field>
+            <field name="res_model">emperor.world</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="emperor.action_window_ship">
+            <field name="name">Ship</field>
+            <field name="res_model">emperor.ship</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="emperor.action_window_kingdom">
+            <field name="name">Kingdom</field>
+            <field name="res_model">emperor.kingdom</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="emperor.action_window_travel">
+            <field name="name">Travel</field>
+            <field name="res_model">emperor.travel</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+	    <record model="ir.actions.act_window" id="emperor.people_action_window">
+            <field name="name">People</field>
+            <field name="res_model">emperor.people</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="emperor.action_battle_tree_window">
+            <field name="name">Battle list</field>
+            <field name="res_model">emperor.create_battle</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_group_battle_id': 1}</field>
+        </record>
+
+      <record model="ir.actions.act_window" id="emperor.action_battle_window">
+            <field name="name">Battle</field>
+            <field name="res_model">emperor.battle</field>
+            <field name="view_mode">form</field>
+      </record>
+
+
+      <record model="ir.actions.act_window" id="emperor.action_power_station_window">
+            <field name="name">Power Plants</field>
+            <field name="res_model">power_station.structure</field>
+            <field name="view_mode">tree,form</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="emperor.action_attack_tower_window">
+            <field name="name">Attack Buildings</field>
+            <field name="res_model">attack_tower.structure</field>
+            <field name="view_mode">tree,form</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="emperor.action_defense_dome_window">
+            <field name="name">Defense Buildings</field>
+            <field name="res_model">defense_dome.structure</field>
+            <field name="view_mode">tree,form</field>
+      </record>
+
+      <record model="ir.actions.act_window" id="emperor.action_nursery_window">
+            <field name="name">Sleeping Buildings</field>
+            <field name="res_model">nursery.structure</field>
+            <field name="view_mode">tree,form</field>
+      </record>
+
+    </data>
+</odoo>

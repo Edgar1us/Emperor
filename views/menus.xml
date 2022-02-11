@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+
+        <menuitem name="Emperor" id="emperor.menu_root"/>
+
+
+        <menuitem name="Principal" id="emperor.menu_1" parent="emperor.menu_root"/>
+
+
+
+        <menuitem name="King" id="emperor.menu_1_king" parent="emperor.menu_1"
+                  action="emperor.action_window_king"/>
+
+
+
+        <menuitem name="World" id="emperor.menu_1_world" parent="emperor.menu_1"
+                  action="emperor.action_window_world"/>
+
+
+
+        <menuitem name="Ship" id="emperor.menu_1_ship" parent="emperor.menu_1"
+                  action="emperor.action_window_ship"/>
+
+
+
+        <menuitem name="Kingdom" id="emperor.menu_1_kingdom" parent="emperor.menu_1"
+                  action="emperor.action_window_kingdom"/>
+
+
+
+        <menuitem name="Travel" id="emperor.menu_1_travel" parent="emperor.menu_1"
+                  action="emperor.action_window_travel"/>
+
+
+
+	    <menuitem name="People" id="emperor.menu_people" parent="emperor.menu_1"
+                  action="emperor.people_action_window"/>
+
+
+        <menuitem name="Battle" id="emperor.menu_battle" parent="emperor.menu_1"
+                  action="emperor.action_battle_tree_window"/>
+
+        <menuitem name="Power Plants" id="emperor.menu_events_power_station" parent="emperor.menu_1"
+                  action="emperor.action_power_station_window"/>
+
+        <menuitem name="Attack Buildings" id="emperor.menu_attack_tower_atributes" parent="emperor.menu_1"
+                  action="emperor.action_attack_tower_window"/>
+
+        <menuitem name="Defense Buildings" id="emperor.menu_defense_dome_atributes" parent="emperor.menu_1"
+                  action="emperor.action_defense_dome_window"/>
+
+        <menuitem name="Sleeping Buildings" id="emperor.menu_events_nursery" parent="emperor.menu_1"
+                  action="emperor.action_nursery_window"/>
+
+    </data>
+</odoo>

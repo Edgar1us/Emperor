@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <record model="ir.cron" forcecreate="True" id="emperor.cron_kingdom">
+            <field name="name">Emperor: Cron Update</field>
+            <field name="model_id" ref="model_emperor_kingdom"/>
+            <field name="state">code</field>
+            <field name="code">model.update_resources()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="activity_user_type">specific</field>
+            <field name="doall" eval="False"/>
+        </record>
+        <record model="ir.cron" forcecreate="True" id="emperor.cron_world">
+            <field name="name">Emperor: Cron World</field>
+            <field name="model_id" ref="model_emperor_world"/>
+            <field name="state">code</field>
+            <field name="code">model.update_resources_world()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="activity_user_type">specific</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

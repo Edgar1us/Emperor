@@ -1,0 +1,182 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="emperor.king_tree">
+            <field name="name">King</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="level"/>
+		            <field name="sex"/>
+		            <field name="age"/>
+	 	            <field name="regiem"/>
+		            <field name="race"/>
+		            <field name="popularity"/>
+                    <field name="ships"/>
+                    <field name="kingdoms"/>
+                    <field name="worlds"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="emperor.levels_changes_graph">
+            <field name="name">Levels graph</field>
+            <field name="model">emperor.levels</field>
+            <field name="arch" type="xml">
+                <graph string="Changes Levels" type="line">
+                    <field name="king" type="row"/>
+                    <field name="date" type="col"/>
+                    <field name="levels" type="measure"/>
+                </graph>
+
+            </field>
+        </record>
+        <act_window
+                id="emperor.launch_levels_graph"
+                name="Launch levels graph"
+                res_model="emperor.levels"
+                view_mode="graph"
+                target="new"
+                domain="[('levels','=',active_id)]"
+        />
+        <act_window
+                id="emperor.agregar_kingdom"
+                name="Agregar kingdom"
+                res_model="emperor.kingdom"
+                view_mode="form"
+                target="new"
+                domain="[('kingdom','=',active_id)]"
+        />
+
+        <record model="ir.ui.view" id="emperor.king_form">
+            <field name="name">King</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="name" widget="statusbar"/>
+                    </header>
+
+		            <header>
+                        <field name="race" widget="statusbar"/>
+                    </header>
+
+                    <sheet>
+                        <field name="photo" widget="image"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="level"/>
+			                <field name="sex"/>
+			                <field name="race"/>
+                            <field name="popularity"/>
+			                <field name="age"/>
+			                <field name="regiem"/>
+                        </group>
+                        <notebook>
+                            <page string="Kingdoms">
+                                <field name="kingdoms" context="{'default_king':active_id}"/>
+                                <button name="%(emperor.agregar_kingdom)d" type="action" string="Agregar kingdom" icon="fa-bolt"
+                                        context="{'default_king':active_id}"></button>
+                            </page>
+                            <page string="Worlds">
+                                <field name="worlds"/>
+                            </page>
+                            <page string="Ships">
+                                <field name="ships"/>
+                            </page>
+                            <page string="Levels">
+                                <field name="levels">
+                                    <tree>
+                                        <field name="king"/>
+                                        <field name="date"/>
+                                        <field name="levels"/>
+                                    </tree>
+                                </field>
+                                <button name="%(emperor.launch_levels_graph)d" type="action" string="Show Graph"
+                                        class="oe_highlight"></button>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+
+
+        </record>
+
+
+        <record model="ir.ui.view" id="emperor.king_inherit_form">
+            <field name="name">King inherit form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                     <page string="King">
+                        <form>
+                    <header>
+                        <field name="name" widget="statusbar"/>
+                    </header>
+
+		            <header>
+                        <field name="race" widget="statusbar"/>
+                    </header>
+
+                    <sheet>
+                        <field name="photo" widget="image"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="level"/>
+			                <field name="sex"/>
+			                <field name="race"/>
+                            <field name="popularity"/>
+			                <field name="age"/>
+			                <field name="regiem"/>
+                            <field name="is_king"/>
+                        </group>
+                        <notebook>
+                            <page string="Kingdoms">
+                                <field name="kingdoms" context="{'default_king':active_id}"/>
+                                <button name="%(emperor.agregar_kingdom)d" type="action" string="Agregar kingdom" icon="fa-bolt"
+                                        context="{'default_king':active_id}"></button>
+                            </page>
+                            <page string="Worlds">
+                                <field name="worlds"/>
+                            </page>
+                            <page string="Ships">
+                                <field name="ships"/>
+                            </page>
+                            <page string="Levels">
+                                <field name="levels">
+                                    <tree>
+                                        <field name="king"/>
+                                        <field name="date"/>
+                                        <field name="levels"/>
+                                    </tree>
+                                </field>
+                                <button name="%(emperor.launch_levels_graph)d" type="action" string="Show Graph"
+                                        class="oe_highlight"></button>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+                    </page>
+                 </notebook>
+            </field>
+
+
+        </record>
+
+        <record model="ir.ui.view" id="emperor.king_search">
+            <field name="name">King</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="level" string="Level" filter_domain="[('level','>','self')]"/>
+                    <filter name="maxLevel" string="Nivel máximo" domain="[('level','>','99')]"></filter>
+                    <filter name="group_by_world" string="Agrupar por nivel"
+                            context="{'group_by': 'level'}"></filter>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

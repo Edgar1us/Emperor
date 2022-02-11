@@ -1,0 +1,20 @@
+<odoo>
+  <data>
+
+     <record model="ir.ui.view" id="emperor.king_premium_form">
+            <field name="name">king Premium Form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="emperor.king_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Premium">
+                        <group>
+                         <field name="is_premium"/>
+                        </group>
+                    </page>
+                    <field name="is_premium"/>
+                </notebook>
+            </field>
+    </record>
+  </data>
+</odoo>

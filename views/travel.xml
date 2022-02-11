@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="emperor.travel_tree">
+            <field name="name">Travel</field>
+            <field name="model">emperor.travel</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="king"></field>
+                    <field name="origin_kingdom"></field>
+                    <field name="destiny_kingdom"></field>
+                    <field name="launch_time"></field>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="emperor.travel_form">
+            <field name="name">Travel</field>
+            <field name="model">emperor.travel</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name"/>
+                    <group>
+                        <field name="king"></field>
+                        <field name="origin_kingdom"></field>
+                        <field name="destiny_kingdom"></field>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="emperor.travel_calendar">
+            <field name="name">Travel Calendar</field>
+            <field name="model">emperor.travel</field>
+            <field name="arch" type="xml">
+                <calendar string="Travel Calendar" date_start="date" date_delay="hours" color="king">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+    </data>
+</odoo>

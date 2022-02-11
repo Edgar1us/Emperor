@@ -1,0 +1,55 @@
+<odoo>
+  <data>
+
+
+      <record model="ir.ui.view" id="emperor.battle_list">
+          <field name="name">Battles list</field>
+          <field name="model">emperor.battle</field>
+          <field name="arch" type="xml">
+            <tree>
+            <field name="attacker"/>
+            <field name="defender"/>
+            <field name="attack"/>
+            <field name="defend"/>
+            <field name="start_date"/>
+            <field name="end_date"/>
+            <field name="finished"/>
+            </tree>
+          </field>
+      </record>
+
+
+        <record model="ir.ui.view" id="emperor.battle">
+            <field name="name">Battle form</field>
+            <field name="model">emperor.battle</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="name" string="Title"/>
+                        <group>
+                             <group string="Attacker kingdom/s:">
+                                 <field name="image_attack" widget="image" string="imagen"/>
+                                 <field name="attack"/>
+                                 <field name="damage"/>
+                            </group>
+                            <group string="Target:">
+                                <field name="image_defend" widget="image"  string=""/>
+                                <field name="defend" string="Kingdom"/>
+                                <field name="defender" string="Owner"/>
+                                <field name="distance"/>
+                            </group>
+                        </group>
+
+                        <group string="Info:">
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="finished"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+  </data>
+</odoo>

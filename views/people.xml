@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="emperor.people_tree">
+            <field name="name">People</field>
+            <field name="model">emperor.people</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="dead"></field>
+                    <field name="live"></field>
+                    <field name="life_expectacy"></field>
+                    <field name="inteligence"></field>
+		            <field name="force"></field>
+                    <field name="ability"></field>
+		</tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="emperor.people_form">
+            <field name="name">People</field>
+            <field name="model">emperor.people</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name"/>
+                    <group>
+			            <field name="name"/>
+                        <field name="dead"></field>
+                        <field name="live"></field>
+                        <field name="life_expectacy"></field>
+                        <field name="inteligence"></field>
+                        <field name="force"></field>
+                        <field name="ability"></field>
+			            <field name="inhabiting"></field>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
